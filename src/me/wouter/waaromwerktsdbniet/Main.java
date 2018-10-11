@@ -17,7 +17,7 @@ public class Main extends JavaPlugin {
 
 	@Override
 	public void onEnable() {
-		getLogger().info("WaaromWerktSDBNiet v1.0.1 geladen.");
+		getLogger().info("WaaromWerktSDBNiet v1.2 geladen.");
 		WereldData.getInstance().setup();
 	}
 
