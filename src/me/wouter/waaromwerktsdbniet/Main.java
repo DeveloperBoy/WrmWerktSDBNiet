@@ -17,7 +17,7 @@ public class Main extends JavaPlugin {
 
 	@Override
 	public void onEnable() {
-		getLogger().info("WaaromWerktSDBNiet v1.2 geladen.");
+		getLogger().info("WaaromWerktSDBNiet v" + getDescription().getVersion() + " geladen.");
 		WereldData.getInstance().setup();
 	}
 
@@ -177,6 +177,9 @@ public class Main extends JavaPlugin {
 		if (Bukkit.getPluginManager().getPlugin("WorldGuard") != null
 				&& Bukkit.getPluginManager().getPlugin("WorldGuard").isEnabled()) {
 			String wgver = Bukkit.getPluginManager().getPlugin("WorldGuard").getDescription().getVersion();
+			if (wgver.contains("7.") && !Bukkit.getVersion().contains("1.13")) {
+				return cc("&cFoute versie (" + Bukkit.getPluginManager().getPlugin("WorldGuard").getDescription().getVersion() + ") (WG 7.0 = 1.13 only)!\n&cOm op te lossen /wrmwerktsdbniet WorldGuard");
+			}
 			if (wgver.contains("6.2") && !wgver.contains("6.2.1") && !Bukkit.getVersion().contains("1.12")) {
 				return cc("&3Goede versie! &b(&3"
 						+ Bukkit.getPluginManager().getPlugin("WorldGuard").getDescription().getVersion() + "&b)");
