@@ -82,7 +82,8 @@ public class Main extends JavaPlugin {
 				break;
 			case "lwc":
 				sender.sendMessage(
-						cc("&3Zorg dat je de plugin &bEntityLWC &3geinstalleerd hebt in plaats van de normale LWC!"));
+						cc("&3Zorg dat je de plugin &bModern LWC &3geinstalleerd hebt in plaats van de normale LWC!"));
+				sender.sendMessage(cc("Voor Spigot versie 1.13.x gebruik je de laatste versie van Modern LWC, en voor Spigot versies onder 1.13 gebruik je versie 1.9.4 van Modern LWC!"));
 				sender.sendMessage(cc("&3Download: &bhttp://minetopiasdb.nl/lwc"));
 				break;
 			case "spigot":
@@ -215,7 +216,13 @@ public class Main extends JavaPlugin {
 	public String getLWC() {
 		PluginManager pm = Bukkit.getPluginManager();
 		if (pm.getPlugin("LWC").getDescription().getAuthors().contains("Me_Goes_RAWR")) {
-			return cc("&eGoede versie! Problemen met WorldGuard? Verwijder het mapje 'libs' in plugins -> LWC");
+			if (Bukkit.getVersion().contains("1.13") && (pm.getPlugin("LWC").getDescription().getVersion().contains("2.0") || pm.getPlugin("LWC").getDescription().getVersion().contains("2.1"))) {
+				return cc("&eGoede versie (" + pm.getPlugin("LWC").getDescription().getVersion() + ")! Problemen met WorldGuard? Verwijder het mapje 'libs' in plugins -> LWC");
+			} else if (!Bukkit.getVersion().contains("1.13") && (!pm.getPlugin("LWC").getDescription().getVersion().contains("2.0") && !pm.getPlugin("LWC").getDescription().getVersion().contains("2.1"))) {
+				return cc("&eGoede versie (" + pm.getPlugin("LWC").getDescription().getVersion() + ")! Problemen met WorldGuard? Verwijder het mapje 'libs' in plugins -> LWC");
+			} else {
+				return cc("&cFoute versie!\n&cOm op te lossen /wrmwerktsdbniet LWC");
+			}
 		} else {
 			return cc("&cFoute versie!\n&cOm op te lossen /wrmwerktsdbniet LWC");
 		}
