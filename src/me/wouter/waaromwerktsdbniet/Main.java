@@ -217,9 +217,9 @@ public class Main extends JavaPlugin {
 		PluginManager pm = Bukkit.getPluginManager();
 		if (pm.getPlugin("LWC").getDescription().getAuthors().contains("Me_Goes_RAWR")) {
 			if (Bukkit.getVersion().contains("1.13") && (pm.getPlugin("LWC").getDescription().getVersion().contains("2.0") || pm.getPlugin("LWC").getDescription().getVersion().contains("2.1"))) {
-				return cc("&eGoede versie (" + pm.getPlugin("LWC").getDescription().getVersion() + ")! Problemen met WorldGuard? Verwijder het mapje 'libs' in plugins -> LWC");
+				return cc("&eGoede versie (" + pm.getPlugin("LWC").getDescription().getVersion() + ")! Problemen met LWC? Verwijder het mapje 'libs' in plugins -> LWC");
 			} else if (!Bukkit.getVersion().contains("1.13") && (!pm.getPlugin("LWC").getDescription().getVersion().contains("2.0") && !pm.getPlugin("LWC").getDescription().getVersion().contains("2.1"))) {
-				return cc("&eGoede versie (" + pm.getPlugin("LWC").getDescription().getVersion() + ")! Problemen met WorldGuard? Verwijder het mapje 'libs' in plugins -> LWC");
+				return cc("&eGoede versie (" + pm.getPlugin("LWC").getDescription().getVersion() + ")! Problemen met LWC? Verwijder het mapje 'libs' in plugins -> LWC");
 			} else {
 				return cc("&cFoute versie!\n&cOm op te lossen /wrmwerktsdbniet LWC");
 			}
