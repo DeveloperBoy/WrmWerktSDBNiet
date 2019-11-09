@@ -54,37 +54,36 @@ public class Main extends JavaPlugin {
 				break;
 			case "vault":
 				sender.sendMessage(cc("&3Zorg dat je de plugin &bVault &3geinstalleerd hebt. "));
-				sender.sendMessage(cc("&3Download: &bhttp://minetopiasdb.nl/vault"));
+				sender.sendMessage(cc("&3Download: &bhttps://minetopiasdb.nl/plugins.html"));
 
 				sender.sendMessage(cc("&3Voor persoonlijke hulp join de discord &bhttp://minetopiasdb.nl/discord"));
 				break;
 			case "worldedit":
 				sender.sendMessage(cc("&3Bij zowel &bWorldEdit &3en &bWorldGuard is de versie belangrijk. "));
-				sender.sendMessage(cc("&3Download: &bhttp://MinetopiaSDB.nl/worldedit"));
+				sender.sendMessage(cc("&3Download: &bhttps://minetopiasdb.nl/plugins.html"));
 				sender.sendMessage(cc("&3Voor persoonlijke hulp join de discord &bhttp://minetopiasdb.nl/discord"));
 				break;
 			case "worldguard":
 				sender.sendMessage(cc("&3Bij zowel WorldEdit en WorldGuard is de versie belangrijk. "));
-				sender.sendMessage(cc("&3Download: &bhttp://minetopiasdb.nl/worldguard"));
+				sender.sendMessage(cc("&3Download: &bhttps://minetopiasdb.nl/plugins.html"));
 				sender.sendMessage(cc("&3Voor persoonlijke hulp join de discord &bhttp://minetopiasdb.nl/discord"));
 				break;
 			case "economy":
 				sender.sendMessage(cc("&3Zorg dat je de plugin &bVault &3geinstalleerd hebt. "));
-				sender.sendMessage(cc("&3Download: &bhttp://minetopiasdb.nl/vault"));
+				sender.sendMessage(cc("&3Download: &bhttps://minetopiasdb.nl/plugins.html"));
 				sender.sendMessage(" ");
 				sender.sendMessage(cc("&3Zorg ook dat je de plugin &bEssentials &3geinstalleerd hebt. "));
-				sender.sendMessage(cc("&3Download: &bhttp://minetopiasdb.nl/essentials"));
+				sender.sendMessage(cc("&3Download: &bhttps://minetopiasdb.nl/plugins.html"));
 				sender.sendMessage(cc("&3Voor persoonlijke hulp join de discord &bhttp://minetopiasdb.nl/discord"));
 				break;
 			case "minetopiasdb":
 				sender.sendMessage(cc("&3Zorg dat je de plugin &bMinetopiaSDB &3geinstalleerd hebt. "));
 				sender.sendMessage(cc("&3Download: &bhttp://minetopiasdb.nl/"));
 				break;
-			case "lwc":
-				sender.sendMessage(
-						cc("&3Zorg dat je de plugin &bModern LWC &3geinstalleerd hebt in plaats van de normale LWC!"));
-				sender.sendMessage(cc("Voor Spigot versie 1.13.x gebruik je de laatste versie van Modern LWC, en voor Spigot versies onder 1.13 gebruik je versie 1.9.4 van Modern LWC!"));
-				sender.sendMessage(cc("&3Download: &bhttp://minetopiasdb.nl/lwc"));
+			case "citizens":
+				sender.sendMessage(cc("&3Zorg dat je de goede versie van Citizens hebt geinstalleerd!"));
+				sender.sendMessage(cc("&3Download: &bhttps://minetopiasdb.nl/plugins.html"));
+				sender.sendMessage(cc("&3Voor persoonlijke hulp join de discord &bhttp://minetopiasdb.nl/discord"));
 				break;
 			case "spigot":
 				sender.sendMessage(cc("&3MinetopiaSDB vereist &bSpigot 1.9.4 &3of hoger!"));
@@ -101,8 +100,8 @@ public class Main extends JavaPlugin {
 			sender.sendMessage(cc("&bVault economy hook: " + getEcon()));
 			sender.sendMessage(cc("&bWorldEdit: " + getWE()));
 			sender.sendMessage(cc("&bWorldGuard: " + getWG()));
-			if (Bukkit.getPluginManager().isPluginEnabled("LWC")) {
-				sender.sendMessage(cc("&eLWC: " + getLWC()));
+			if (Bukkit.getPluginManager().isPluginEnabled("Citizens")) {
+				sender.sendMessage(cc("&eCitizens: " + getCitizens()));
 			}
 			sender.sendMessage(cc("&bMinetopiaSDB: " + getSDB(sender)));
 			sender.sendMessage(cc("&3Voor persoonlijke hulp join de discord &bhttp://minetopiasdb.nl/discord"));
@@ -213,19 +212,17 @@ public class Main extends JavaPlugin {
 		return cc("&cMinetopiaSDB is niet geinstalleerd!\n&cOm op te lossen /wrmwerktsdbniet MinetopiaSDB");
 	}
 
-	public String getLWC() {
+	public String getCitizens() {
 		PluginManager pm = Bukkit.getPluginManager();
-		if (pm.getPlugin("LWC").getDescription().getAuthors().contains("Me_Goes_RAWR")) {
-			if (Bukkit.getVersion().contains("1.13") && (pm.getPlugin("LWC").getDescription().getVersion().contains("2.0") || pm.getPlugin("LWC").getDescription().getVersion().contains("2.1"))) {
-				return cc("&eGoede versie (" + pm.getPlugin("LWC").getDescription().getVersion() + ")! Problemen met LWC? Verwijder het mapje 'libs' in plugins -> LWC");
-			} else if (!Bukkit.getVersion().contains("1.13") && (!pm.getPlugin("LWC").getDescription().getVersion().contains("2.0") && !pm.getPlugin("LWC").getDescription().getVersion().contains("2.1"))) {
-				return cc("&eGoede versie (" + pm.getPlugin("LWC").getDescription().getVersion() + ")! Problemen met LWC? Verwijder het mapje 'libs' in plugins -> LWC");
+			if (Bukkit.getVersion().contains("1.9") && pm.getPlugin("LWC").getDescription().getVersion().contains("2.0.18")) {
+				return cc("&eGoede versie (" + pm.getPlugin("LWC").getDescription().getVersion() + ")!");
+			} else if ((Bukkit.getVersion().contains("1.10") || Bukkit.getVersion.contains("1.11") || Bukkit.getVersion.contains("1.12")) && pm.getPlugin("LWC").getDescription().getVersion().contains("2.0.22")) {
+				return cc("&eGoede versie (" + pm.getPlugin("LWC").getDescription().getVersion() + ")!");
+			} else if (Bukkit.getVersion().contains("1.13") || Bukkit.getVersion().contains("1.14")) && pm.getPlugin("LWC").getDescription().getVersion().contains("2.0.25")) {
+				return cc("&eGoede versie (" + pm.getPlugin("LWC").getDescription().getVersion() + ")!");
 			} else {
-				return cc("&cFoute versie!\n&cOm op te lossen /wrmwerktsdbniet LWC");
+				return cc("&cMogelijk foute versie!\n&cOm op te lossen /wrmwerktsdbniet Citizens");
 			}
-		} else {
-			return cc("&cFoute versie!\n&cOm op te lossen /wrmwerktsdbniet LWC");
-		}
 	}
 
 	public void clearPlayer(CommandSender p) {
